@@ -97,6 +97,7 @@ function displayElements(){
 
 //mouse click
 document.addEventListener("click", function(e){
+	rect = canvas.getBoundingClientRect();
 	var mx = e.clientX - rect.left;
 	var my = e.clientY  - rect.top;
 	console.log(mx,my);
@@ -104,6 +105,7 @@ document.addEventListener("click", function(e){
 });
 //touch on touchscreen
 document.addEventListener("touchstart", function(r){
+	rect = canvas.getBoundingClientRect();
 	e.preventDefault();
 	var mx = e.touches[0].clientX - rect.left;
 	var my = e.touches[0].clientY  - rect.top;
