@@ -1,3 +1,4 @@
+// MATEJ BEVEC 2019
 
 //points are ordered pairs {x,y}
 
@@ -33,6 +34,7 @@ class Curve{
 	}
 }
 
+//object representing a point on canvas
 class Point{
 
 	//x;
@@ -67,6 +69,8 @@ var currentCurve;
 var gDepth = 8;
 var gInfo = false;
 var gInfoRec = false;
+//ui
+var depthText;
 
 //is called when page loads
 function start(){
@@ -74,9 +78,8 @@ function start(){
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext("2d");
 	rect = canvas.getBoundingClientRect();
-
-
-	//runtime
+	depthText = document.getElementById("depth_text");
+	depthText.innerHTML = "Recursion depth = " + gDepth;
 
 }
 
@@ -137,7 +140,7 @@ function handleClick(mx,my){
 
 }
 
-//temporary display toggles
+//display toggles
 document.addEventListener("keydown", function(e){
 	if(e.keyCode == 81){
 		// Q - toggle bezier algorithm demonstration
@@ -162,7 +165,9 @@ document.addEventListener("keydown", function(e){
 		currentCurve = null;
 	}
 
-	displayElements();	
+	displayElements();
+	depthText.innerHTML = "Recursion depth = " + gDepth;
+	console.log(depthText);	
 });
 
 //STATIC UTILITY FUNCTIONS
